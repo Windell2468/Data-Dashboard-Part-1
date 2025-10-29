@@ -2,7 +2,7 @@
 
 Submitted by: **Jerry Rogers Jr.**
 
-This web app: **is a data dashboard for Disney characters that uses the Disney API. It allows users to search for Disney characters in films and books.**
+This web app: **is a data dashboard for Disney characters that uses the Disney API. It allows users to search for Disney characters in films.**
 
 Time spent: **8** hours spent in total
 
@@ -50,7 +50,7 @@ GIF created with ...
 [peek](https://github.com/phw/peek) for Linux. -->
 
 ## Notes
-The challenge was to set up a filter and a map function. It took me a while to figure out how it works and what it does with the dependencies array. 
+The challenge was setting up the filter and map functions. It took me some time to understand how they work and how the dependencies array affects them.
 
 ## License
 
