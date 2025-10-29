@@ -1,0 +1,72 @@
+html, body {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default margin and padding */
+  font-family: 'Times New Roman', Times, serif;
+  -webkit-font-smoothing: antialiased; /* Improve font rendering */
+  -moz-osx-font-smoothing: grayscale; 
+  background-color: #282c34; /* Dark background color */
+  
+  
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  text-align: center;
+  
+}
+
+
+.app {
+font-family: system-ui, sans-serif; padding: 20px;
+min-height: 100vh; /* Ensure it takes full viewport height */
+  display: flex; /* Use flexbox for layout */
+  justify-content: flex-start; /* Align items to the left */
+  align-items: center; /* Align items to the top */
+  flex-direction: column; /* Stack items vertically */
+  background-color:#e02020; /* Updated background color */
+  border: 5px solid #ea1207; /* Added border */
+  padding: 2rem; /* Added padding for better spacing */
+
+
+
+}
+.main{
+  max-width: 900px; margin: 0 auto;
+}
+.summary{
+  display: flex; 
+  gap: 16px; 
+   margin-bottom: 12px;
+
+
+}
+.stat{
+background:#f5f5f5;
+padding:8px 12px;
+border-radius:8px;
+
+}
+.controls {
+display: flex;
+gap: 12px;
+align-items: center;
+margin-bottom: 12px;
+}
+.search-bar{ 
+  padding:8px;
+  border-radius:6px;
+  border: 1px solid #ccc;
+  width: 260px;
+}
+.results ul {
+  list-style: none;
+  padding:0;
+
+}
+.character-row{
+  display: flex;
+  justify-content:space-between; 
+  padding:8px 6px;
+  border-bottom:1px solid #eee; 
+}
