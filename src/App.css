@@ -1,10 +1,8 @@
 html, body {
   margin: 0; /* Remove default margin */
   padding: 0; /* Remove default margin and padding */
-  font-family: 'Times New Roman', Times, serif;
-  -webkit-font-smoothing: antialiased; /* Improve font rendering */
-  -moz-osx-font-smoothing: grayscale; 
-  background-color: #282c34; /* Dark background color */
+  font-family: 'Times New Roman', Times, serif; 
+  
   
   
 }
@@ -24,8 +22,8 @@ min-height: 100vh; /* Ensure it takes full viewport height */
   justify-content: flex-start; /* Align items to the left */
   align-items: center; /* Align items to the top */
   flex-direction: column; /* Stack items vertically */
-  background-color:#e02020; /* Updated background color */
-  border: 5px solid #ea1207; /* Added border */
+  background-color:#4a62d8; /* Updated background color */
+  border: 5px solid #746bab; /* Added border */
   padding: 2rem; /* Added padding for better spacing */
 
 
@@ -59,13 +57,13 @@ margin-bottom: 12px;
   border: 1px solid #ccc;
   width: 260px;
 }
-.results ul {
+.results ul { 
   list-style: none;
   padding:0;
 
 }
 .character-row{
-  display: flex;
+  display: flex; /* Use flexbox for layout */
   justify-content:space-between; 
   padding:8px 6px;
   border-bottom:1px solid #eee; 

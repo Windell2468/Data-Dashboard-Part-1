@@ -2,9 +2,13 @@ import { useState, useEffect, useMemo } from 'react'
 import './App.css'
 
 function App() {
+  //State for storing to fetch array  of Disney Characters
   const [characters, setCharacters] = useState([]) 
+  // The State to manage the loading status during with Application Programming Interface (API)
   const [isLoading, setIsLoading] = useState(true)
+  //The text box for input for search disney charecter name
   const [search, setSearch] = useState("")
+  // Choose flim in the dropdown filter
   const [chooseFilm, setChooseFilm] = useState("All")
 
   // Fetch a Disney character data
@@ -22,20 +26,20 @@ function App() {
       }
     }
     disneyFetch()
-  }, [])
+  }, []) //Empty dependency array
 
-  //  Compute stats and dropdown film options
-  const { optionsFilm, charactersWithFilms, avgFilmsPerChar } = useMemo(() => {
+  //  Compute stats and dropdown film options using Usememo 
+  const { optionsFilm, charactersWithFilms, avgFilmsPerChar } = useMemo(() => { 
     const filmCounts = {}
-    let totalFilms = 0
-    let charsWithFilms = 0
+    let totalFilms = 0 // The total number of disney films across all characters
+    let charsWithFilms = 0 // There is a count of characters with least one film
 
     characters.forEach((c) => {
-      const films = Array.isArray(c.films) ? c.films : []
-      if (films.length > 0) charsWithFilms += 1
-      totalFilms += films.length
+      const films = Array.isArray(c.films) ? c.films : [] //disney films is an array
+      if (films.length > 0) charsWithFilms += 1 // Counted characters in Films
+      totalFilms += films.length // Add a number  of films with average calculation
       films.forEach((f) => {
-        if (!f) return
+        if (!f) return // null film names     
         filmCounts[f] = (filmCounts[f] || 0) + 1
       })
     })
@@ -46,8 +50,8 @@ function App() {
       .map((entry) => entry[0])
 
     const topFilms = sortedFilms.slice(0, 30) 
-    const options = ["All", ...topFilms]
-    const avg = characters.length > 0 ? totalFilms / characters.length : 0
+    const options = ["All", ...topFilms] // It is dropdown options that includes ALL
+    const avg = characters.length > 0 ? totalFilms / characters.length : 0 // It can calculate average disney films per character 
 
     return {
       optionsFilm: options,
@@ -62,9 +66,9 @@ function App() {
       char.name.toLowerCase().includes(search.trim().toLowerCase())
     )
     .filter((char) => {
-      if (chooseFilm === "All") return true
+      if (chooseFilm === "All") return true // It show  all if "All" is choosed
       const films = Array.isArray(char.films) ? char.films : []
-      return films.includes(chooseFilm)
+      return films.includes(chooseFilm) //It only including disney characters from choosing disney film
     })
     
   return (
@@ -73,7 +77,7 @@ function App() {
         <h1>Disney Characters Data Dashboard</h1>
 
         {isLoading ? (
-          <p>Loading characters...</p>
+          <p>Loading characters...</p> //It shows a loading message while it fetches a disney character
         ) : (
           <div>
             {/* Disney Summary statistics */}
@@ -96,7 +100,7 @@ function App() {
                 type="text"
                 placeholder="Search Disney Characters..."
                 value={search}
-                onChange={(e) => setSearch(e.target.value)}
+                onChange={(e) => setSearch(e.target.value)}//It updates the state
                 className='search-bar'
               />
 
@@ -104,7 +108,7 @@ function App() {
                 <span>Filter by film:</span>
                 <select
                   value={chooseFilm}
-                  onChange={(e) => setChooseFilm(e.target.value)}
+                  onChange={(e) => setChooseFilm(e.target.value)} // It updates the disney film filter
                 >
                   {optionsFilm.map((film) => (
                     <option key={film} value={film}>
